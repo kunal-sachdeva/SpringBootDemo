@@ -10,11 +10,8 @@ import java.util.Map;
 
 @Service
 public class ProductStore implements ProductService{
-    public Map<Integer, Product> productMap;
-    public ProductStore(){
-        productMap= new HashMap<>();
-    }
-    public void defaultProduct(){
+    private static Map<Integer, Product> productMap = new HashMap<>();
+    static {
         Product honey = new Product(1,"Honey");
         Product almond = new Product(2,"Almond");
         productMap.put(honey.getId(),honey);

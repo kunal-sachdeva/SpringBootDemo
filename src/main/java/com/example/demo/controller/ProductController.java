@@ -22,12 +22,6 @@ public class ProductController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @RequestMapping(value = "/")
-    public String Hello(){
-        productStore.defaultProduct();
-        return "initializing product Store. Please Add '/products' in URL to proceed further "+ownerName;
-    }
-
     @RequestMapping(value="/products")
     public ResponseEntity<Object>getProducts(){
 

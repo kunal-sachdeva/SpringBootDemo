@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org"
+      xmlns:sec = "http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset = "ISO-8859-1" />
+    <link href = "css/styles.css" rel = "stylesheet"/>
+    <title>Spring Boot Application</title>
+</head>
+<body>
+<h4>Welcome to Thymeleaf Spring Boot web application</h4>
+<div th:if ="${param.error}">
+        Invalid User name and Password
+</div>
+<div th:if ="${param.logout}">
+        You have been logged out
+</div>
+<div>
+    <h2>Login Page</h2>
+    <form th:action="@{/login}" method="post" >
+        <label for="username"> UserName</label>
+        <input type="text" id="username" class="form-control" name="username" autofocus="autofocus"/>
+        <label for="password">Password</label>
+        <input type="password" id="password" class="form-control" name="password"/>
+        <input id="submit" type="submit" class="btn" value="Log In"/>
+    </form>
+</div>
+<div>
+    <h>Or</h>
+
+    <p>Click <a href="/register"> here </a> for Registration !!</p>
+</div>
+</body>
+<html/>

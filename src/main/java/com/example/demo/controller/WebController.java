@@ -1,7 +1,9 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.User;
+import com.example.demo.service.ProductStore;
 import com.example.demo.service.ValidationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,15 +12,22 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class WebController {
-    @RequestMapping(value="/index")
-    public String index(Model model){
-        model.addAttribute("user", new User());
-        return "index";
+    @Autowired
+    ProductStore productStore;
+
+    @RequestMapping(value = "/")
+    public String Hello(){
+        return "home";
     }
-    @RequestMapping(value = "/validate", method = RequestMethod.POST)
-    @ResponseBody
-    public String validate(@ModelAttribute("user") User user){
-        ValidationService.validateUser(user);
-        return "Welcome! You are logged in";
+
+    @RequestMapping(value="/home")
+    public String home(){
+        return "home";
     }
+
+    @RequestMapping(value="/hello")
+    public String hello(){
+        return "hello";
+    }
+
 }
