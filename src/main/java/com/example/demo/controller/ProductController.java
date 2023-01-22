@@ -22,7 +22,7 @@ public class ProductController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @RequestMapping(value = "/")
+    @RequestMapping(value = "/init")
     public String Hello(){
         productStore.defaultProduct();
         return "initializing product Store. Please Add '/products' in URL to proceed further "+ownerName;
@@ -62,5 +62,20 @@ public class ProductController {
         productStore.updateProduct(productId,product);
         return new ResponseEntity<>("Product Successfully updated in the list", HttpStatus.OK);
     }
-
+    Product p = new Product();
+    @RequestMapping(value="/test/wait", method = RequestMethod.GET)
+    public ResponseEntity<Object>waitProduct() throws InterruptedException {
+        System.out.println("Acquiring wait");
+        synchronized(p) {
+            p.wait();
+        }
+        return new ResponseEntity<>("wait is released", HttpStatus.OK);
+    }
+    @RequestMapping(value="/test/notify", method = RequestMethod.GET)
+    public ResponseEntity<Object>notifyProduct() throws InterruptedException {
+        synchronized (p) {
+            p.notify();
+        }
+        return new ResponseEntity<>("notified!!", HttpStatus.OK);
+    }
 }

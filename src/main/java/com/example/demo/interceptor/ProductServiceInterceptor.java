@@ -1,3 +1,4 @@
+/*
 package com.example.demo.interceptor;
 
 import org.springframework.stereotype.Component;
@@ -26,3 +27,4 @@ public class ProductServiceInterceptor implements HandlerInterceptor {
         System.out.println("Post Completion is called");
     }
 }
+*/

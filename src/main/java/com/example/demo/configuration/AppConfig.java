@@ -1,6 +1,6 @@
 package com.example.demo.configuration;
 
-import com.example.demo.service.ProductStore;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;

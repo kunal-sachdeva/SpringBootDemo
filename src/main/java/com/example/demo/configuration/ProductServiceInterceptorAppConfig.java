@@ -1,3 +1,4 @@
+/*
 package com.example.demo.configuration;
 
 import com.example.demo.interceptor.ProductServiceInterceptor;
@@ -18,3 +19,4 @@ public class ProductServiceInterceptorAppConfig extends WebMvcConfigurationSuppo
         registry.addInterceptor(productServiceInterceptor);
     }
 }
+*/
